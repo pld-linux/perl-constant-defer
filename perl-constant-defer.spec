@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_without	tests		# do not perform "make test"
-#
+
 %define		pdir	constant
 %define		pnam	defer
 %include	/usr/lib/rpm/macros.perl
@@ -20,10 +20,10 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-constant::defer creates a subroutine which on the first call runs given
-code to calculate its value, and on any subsequent calls just returns that
-value, like a constant.  The value code is discarded once run, allowing it
-to be garbage collected.
+constant::defer creates a subroutine which on the first call runs
+given code to calculate its value, and on any subsequent calls just
+returns that value, like a constant. The value code is discarded once
+run, allowing it to be garbage collected.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -37,12 +37,11 @@ to be garbage collected.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} pure_install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-cp -a examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -52,5 +51,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes README
 %dir %{perl_vendorlib}/constant
 %{perl_vendorlib}/constant/defer.pm
-%{_mandir}/man3/*
+%{_mandir}/man3/constant::defer.3pm*
 %{_examplesdir}/%{name}-%{version}
