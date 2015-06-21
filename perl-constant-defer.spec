@@ -5,7 +5,8 @@
 %define		pdir	constant
 %define		pnam	defer
 %include	/usr/lib/rpm/macros.perl
-Summary:	constant::defer -- constant subs with deferred value calculation
+Summary:	constant::defer - constant subs with deferred value calculation
+Summary(pl.UTF-8):	constant::defer - stałe procedury z opóźnionym obliczeniem wartości
 Name:		perl-constant-defer
 Version:	6
 Release:	1
@@ -24,6 +25,13 @@ constant::defer creates a subroutine which on the first call runs
 given code to calculate its value, and on any subsequent calls just
 returns that value, like a constant. The value code is discarded once
 run, allowing it to be garbage collected.
+
+%description -l pl.UTF-8
+constant::defer tworzy procedurę, która przy pierwszym wywołaniu
+uruchamia zadany kod w celu obliczenia swojej wartości, a przy
+kolejnych wywołaniach tylko zwraca tę wartość - jak stałą. Kod
+obliczający wartość jest unieważniany po uruchomieniu, co pozwala na
+usunięcie go z pamięci w ramach odśmiecania.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
