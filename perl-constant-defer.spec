@@ -4,7 +4,6 @@
 
 %define		pdir	constant
 %define		pnam	defer
-%include	/usr/lib/rpm/macros.perl
 Summary:	constant::defer - constant subs with deferred value calculation
 Summary(pl.UTF-8):	constant::defer - stałe procedury z opóźnionym obliczeniem wartości
 Name:		perl-constant-defer
